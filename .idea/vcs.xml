@@ -2,6 +2,7 @@
 <project version="4">
   <component name="VcsDirectoryMappings">
     <mapping directory="" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/Assignment1_COMP2152" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/Week02/awesome-codebases" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/Week03/first-contributions" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/comp2152_labs" vcs="Git" />
