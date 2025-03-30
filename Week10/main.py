@@ -1,27 +1,27 @@
-import sqlite3
-from contextlib import closing
+import random
+import os
+import platform
+from hero import Hero
+from monster import Monster
+import functions
 
-try:
-    with closing(sqlite3.connect('test.db')) as db_conn:
-        db_conn.row_factory = sqlite3.Row
-        with closing(db_conn.cursor()) as cursor:
-            try:
-                query_1= "SELECT * FROM demo WHERE id > 14"
-                print(query_1)
-                cursor.execute(query_1)
-                rows = cursor.fetchall()
-                for row in rows:
-                    print(row["name"])
-            except Exception as e:
-                print(f"Error Executing Query 1")
-            try:
-                del_row = int(input("Enter the row ID threshold for deletion: "))
-                query_2 = "DELETE FROM demo WHERE ID < ?"
-                cursor.execute(query_2, (del_row,))
-                num_rows = cursor.rowcount
-                print(f"{num_rows} rows affected!")
-                db_conn.commit()
-            except Exception as e:
-                print(f"Error Executing Query 2")
-except sqlite3.Error as e:
-    print(f"Database Connection Error")
+
+def main():
+    print(f"Operating System: {os.name}")
+    print(f"Python Version: {platform.python_version()}")
+
+    # Create Hero and Monster objects
+    hero = Hero()
+    monster = Monster()
+
+    # Game logic can proceed here where hero and monster interact with each other
+    # For example, using hero's attack function
+    monster_health = monster.m_health_points
+    hero_attack = hero.hero_attacks(monster_health)
+    monster.m_health_points = monster_health - hero_attack
+
+    # Continue game flow...
+
+
+if __name__ == "__main__":
+    main()
